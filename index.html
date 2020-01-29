@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Agencia Uru Air</title>
+	<link rel="icon" href="img/logo.png">
+
+	<!-- Librerias externas -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+	<script src="js/jquery-1.12.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>  
+	<script src="js/chart/highcharts.js"></script>
+	<script src="js/chart/data.js"></script>
+	<script src="js/chart/drilldown.js"></script>
+
+	<!-- Librerias internas -->
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/googleMaps.css">
+	<script src="js/mantenimiento.js"></script>
+	<script src="js/funciones.js"></script>
+	<script src="js/googleMaps.js"></script>
+	<script src="js/chart/chart.js"></script>
+	
+</head>
+<body>
+	<!-- Div para mostrar el modal de boostrap -->
+	<div class="modal fade" id="modalGenerico" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3 id="cabeceraModal"></h3>
+				</div>
+				<div class="modal-body">
+					<span id="mensajeModal"></span>    
+				</div>
+				<div class="modal-footer">
+					<a href="#" data-dismiss="modal" class="btn btn-primary">Cerrar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Menú -->
+	<header id="inicio">
+		<div class="logotipo">
+				<img src="img/logo.png" alt="">
+		</div>
+		<nav> 
+			<ul>
+				<li><a href="#" value="inicioPagina">Inicio</a></li>
+				<li><a href="#" value="registrarCliente">Registrar cliente</a></li>
+				<li><a href="#" value="registrarHotel">Registrar hotel</a></li>
+				<li><a href="#" value="registrarPaquete">Registrar paquete</a></li>
+				<li><a href="#" value="busquedaReservaPaquete">Búsqueda y reserva de paquete</a></li>
+				<li><a href="#" value="consultaReservas">Consulta de reservas</a></li>
+				<li><a href="#" value="gestionPaquetes">Gestión de paquetes</a></li>
+				<li><a href="#" value="distribucionReservas">Distribución de reservas</a></li>								
+			</ul>
+		</nav>
+	</header>
+	<section class="defaultPage">
+		<h3>
+		Ofertas Uru Air!!
+		</h3>			
+		<div class="divDefault">
+			<img src="img/promos/viaje1.png">
+		</div>
+		<div class="divDefault">
+			<img src="img/promos/viaje2.png">
+		</div>
+		<div class="divDefault">
+			<img src="img/promos/viaje3.png">
+		</div>
+		<div class="divDefault">
+			<img src="img/promos/viaje4.png">
+		</div>
+	</section>
+	<section class="main">			
+		<section id="registrarCliente">
+			<article>
+			<h4>
+				Registrar un nuevo cliente
+			</h4>
+				<form>
+					<div class="formContainerLeft">
+						<label for="nombreCliente">Nombre:</label>
+						<input type="text" id="nombreCliente" placeholder="Escriba el nombre" autofocus="autofocus">
+						
+						<label for="ciCliente">Cédula:</label>
+						<input type="number" id="ciCliente" placeholder="Escriba la cédula" min>
+						
+						<label for="edadCliente">Edad:</label>
+						<input type="number" id="edadCliente" placeholder="Escriba la edad">
+						
+						<label for="telefonoCliente">Teléfono:</label>
+						<input type="tel" id="telefonoCliente" placeholder="Escriba el teléfono">
+						
+						<label for="emailCliente">Email:</label>
+						<input type="email" id="emailCliente" placeholder="Escribe tu email">
+					</div>
+					<div class="formContainerRight">
+						<div class="divGrupo">
+							<label>Seleccione los destinos:</label>
+							<div id="destinosCliente"></div>	
+						</div>
+						
+						<div class="divGrupo">
+							<label>Seleccione la tarjeta de preferencia:</label>
+							<select id="tarjetasCliente"></select>
+						</div>
+
+						<input type="button" class="btn btn-danger" id="cancelarCliente" value="Cancelar">
+						<input type="button" class="btn btn-primary" id="registroCliente" value="Registrar">	
+					</div>
+				</form>
+			</article>
+		</section>
+		<section id="registrarHotel">
+			<article>
+			<h3>
+				Registrar un nuevo hotel
+			</h3>
+				<form class="conMapa">
+					<div class="formContainerLeft">
+						<label for="nombreHotel">Nombre:</label>
+						<input type="text" id="nombreHotel" placeholder="Escriba el nombre">
+						
+						<div class="divGrupo">
+							<label>Seleccione los servicios:</label>
+							<div id="serviciosHotel"></div>	
+						</div>
+
+						<label for="costoHotel">Costo por noche:</label>
+						<input type="number" id="costoHotel" placeholder="Costo por noche">
+												
+						<div class="divGrupo">
+							<label>Seleccione el país:</label>
+							<select id="paisesHotel"></select>
+						</div>
+
+						<div class="divGrupo">
+							<label>Seleccione la ciudad:</label>
+							<select id="ciudadesHotel"></select>
+						</div>
+
+						<input type="button" class="btn btn-danger" id="cancelarHotel" value="Cancelar">	
+						<input type="button" class="btn btn-primary" id="registroHotel" value="Registrar">	
+					</div>
+					<div class="formContainerRight">
+						<div class="divGrupo">
+							<label>Seleccione la ubicación:</label>
+							<div id="map"></div>
+						</div>
+					</div>
+				</form>
+			</article>
+		</section>
+		<section id="registrarPaquete">
+			<article>
+			<h3>
+				Registrar un nuevo paquete de turismo
+			</h3>
+				<form>			
+					<div class="divGrupo">
+						<label for="nombrePaquete">Nombre:</label>
+						<input type="text" id="nombrePaquete" placeholder="Escriba el nombre del paq.">
+						
+						<label for="descripcionPaquete">Descripción:</label>
+						<textarea rows="5" cols="35" id="descripcionPaquete"></textarea> 
+						
+						<label for="cantHabSimples">Cantidad de habitaciones simples:</label>
+						<input type="number" id="cantHabSimples">
+						
+						<label for="cantHabDobles">Cantidad de habitaciones dobles:</label>
+						<input type="number" id="cantHabDobles">
+									
+						<label for="mesPaquete">Mes:</label> 
+						<input type="number" id="mesPaquete">
+						
+						<label for="cantDiasPaquete">Cantidad de días:</label>	
+						<input type="number" id="cantDiasPaquete">											
+					</div>				
+					<div class="divGrupo">
+						<label>Seleccione el país de destino:</label>
+						<select id="paquetePaises"></select>
+						
+						<label>Seleccione la ciudad de destino:</label>
+						<select id="paqueteCiudades"></select>
+					</div>					
+					<div class="divGrupo">
+						<label>Seleccione hotel:</label>
+						<select id="paqueteHoteles"></select>
+					
+						<label for="paqueteCostoTraslado">Costo de traslado por persona:</label>
+						<input type="number" id="paqueteCostoTraslado" placeholder="Costo por persona">					
+					</div>
+					
+					<input type="button" class="btn btn-danger" id="cancelarPaquete" value="Cancelar">	
+					<input type="button" class="btn btn-primary" id="registroPaquete" value="Registrar">	
+				</form>
+			</article>
+		</section>
+		<section id="busquedaReservaPaquete">
+			<article>
+			<h3>
+				Búsqueda y reserva de paquete a medida
+			</h3>
+				<form>
+					<div class="divGrupo">
+						<label>Seleccione cliente:</label>
+						<select id="clientesRegistrados"></select>
+						
+						<label for="cantPersonasViajan">Cantidad de personas:</label>
+						<input type="number" id="cantPersonasViajan">
+						
+						<label for="mesViaje">Mes:</label>
+						<input type="number" id="mesViaje"> 
+					</div>
+										
+					<div class="divGrupo">
+						<label>Seleccione el país deseado:</label>
+						<select id="reservaPaquetesPaises"></select>
+					</div>
+					
+					<input type="button" class="btn btn-success" id="busquedaPaquete" value="Buscar">	
+					
+					<div class="divGrupo" id="listaPaquetes">
+						<label>Seleccione el paquete deseado:</label>
+						<select id="reservaPaquetesPaquetes"></select>
+							
+						<figure class="imgCiudadSeleccionada">
+							<img src="">
+							<figcaption></figcaption>
+						</figure>
+					
+						<label for="cantPersonasHabDobles">Cantidad de habitaciones dobles:</label>
+						<input type="number" id="cantPersonasHabDobles" disabled="disabled">
+				
+						<label for="cantPersonasHabSimples">Cantidad de habitaciones simples:</label>
+						<input type="number" id="cantPersonasHabSimples" disabled="disabled">
+						
+						<br>
+						<label for="costoTotalReserva">Costo total:</label>
+						<input type="text" id="costoTotalReserva" disabled="disabled">						
+					</div>					
+					<br>
+					<span id="listaPaquetesInfo">
+						<div class="divGrupo">
+							<strong>No se han encontrado paquetes para la cantidad de personas ingresadas.</strong>
+						</div>
+					</span>
+					<input type="button" class="btn btn-danger" id="cancelarReserva" value="Cancelar">	
+					<input type="button" class="btn btn-primary" id="reservoPaquete" value="Reservar">
+				</form>		
+			</article>
+		</section>
+		<section id="consultaReservas">
+			<article>
+			<h3>
+				Consulta de reservas
+			</h3>
+					<form>
+						<div class="divGrupo" id="tablaReservas">
+							<table border="4px">
+								<thead>
+									<tr>
+										<td>
+											<em>Nombre del cliente</em>
+										</td>	
+										
+										<td>
+											<em>Edad</em>
+										</td>
+										
+										<td>
+											</em>Cant. reservas</em>
+										</td>	
+										
+										<td>
+											<em>Total</em>
+										</td>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>						
+						<span id="tablaReservasInfo">
+							<strong>No existen datos para mostrar.</strong>
+						</span>
+					</form>
+			</article>
+		</section>
+		<section id="gestionPaquetes">
+			<article>
+			<h3>
+				Gestión de paquetes
+			</h3>
+				<form>
+					<div class="divGrupo">
+						<label>Seleccione el país:</label>
+						<select id="gestionPaises"></select>
+						
+					</div>
+					<div class="divGrupo" id="tablaGestionPaquetes">
+						<table border="4px">
+							<thead>
+								<tr>
+									<td>
+										<em>Nombre</em>
+									</td>									
+									<td>
+										<em>Hotel</em>
+									</td>									
+									<td>
+										<em>País</em>
+									</td>									
+									<td>
+										<em>Ciudad</em>
+									</td>		
+									<td>
+										<em>Disponibilidad</em>
+									</td>								
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+					<span id="tablaGestionPaquetesInfo">
+						<strong>No existen datos para mostrar.</strong>
+					</span>
+				</form>
+			</article>
+		</section>
+		<section id="distribucionReservas">
+			<article>
+			<h3>
+				Distribución de reservas
+			</h3>	
+			<form id="formChart">
+				<div id="container"></div>
+				<span id="containerInfo"><strong>No hay datos para mostrar gráficamente.</strong></span>
+			</form>	
+			</article>
+		</section>
+		<i class="ir-arriba fa fa-arrow-up" aria-hidden="true"></i>
+	</section>
+	
+	<footer>
+		<p>&#169; Agencia Uru Air - 2017 </p>
+		<a href="https://www.facebook.com/uruair"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+		<a href="https://www.twitter.com/uruair"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+		<a href="https://plus.google.com/u/0/uruair"><i class="fa fa-google-plus" aria-hidden="true"></i>
+	</footer>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Hbg0-bMF-NeTKwMupXdtMkDckY7lRSs&callback=initMap" async defer></script>
+	
+</body>
+</html>

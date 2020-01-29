@@ -1,0 +1,15 @@
+#map {
+  height: 400px;
+  width: 500px;
+  position: relative;
+}
+
+.maps-frame {
+  height: 100px;
+  width: 100%;
+}
+
+/* Display the control once it is inside the map. */
+#map .map-control { 
+  display: block; 
+}

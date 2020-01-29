@@ -1,0 +1,187 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(../img/fondo.jpg);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center 0px;
+	background-size: cover;
+}
+
+header, .main, footer {
+	width: 95%;
+	margin: 20px auto;
+}
+
+.main section {
+	padding: 1px 1px;
+	margin-bottom: 10px;
+	background: rgba(200, 200, 250, 0.5);
+	border-radius: 5px;
+}
+
+footer {
+	background: #528fd5;
+	color: #fff;
+	clear: both;
+	padding: 10px 0px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+header nav {
+	background: #528fd5;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+header nav ul {
+	list-style: none;
+}
+
+header nav ul li {
+	float: left;
+}
+
+header nav ul li a {
+	padding: 15px 8px;
+	display: block;
+	color: #fff;
+	text-decoration: none !important;
+	font-size: 16px;
+}
+
+header nav ul li a:hover {
+	background: #75acec;
+}
+
+article h3, h4 {
+	margin: 20px;
+}
+
+form {
+	width: 50%;
+	border: 1px solid #eee;
+	margin: 10px;
+	padding: 10px;
+}
+
+form.conMapa {
+	width: 62%;
+}
+
+#formChart {
+	width: 82% !important;
+}
+
+label {
+	font-size: 13px;
+	display: block;
+	width: 100%;
+}
+
+input {
+	margin-bottom: 10px;
+}
+
+.divGrupo {
+	border: 1px solid #eee;
+	padding: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tarjetasCliente {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.checkboxDivGroupCompund label {
+	display: inline;
+}
+
+.modal-dialog {
+    width: 400px !important;
+}
+
+.formContainerLeft {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.formContainerRight {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.logotipo img {
+	width: 80px;
+	margin-bottom: 5px;
+}
+
+.fa.ir-arriba {
+	display:none;
+	padding:10px;
+	background: rgba(200, 200, 250, 0.8);
+	font-size:40px;
+	color: #528fd5;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:40px;
+	border-radius: 5px;
+}
+
+.fa {
+	font-size:25px;
+	color: white;
+}
+
+#container{  	
+	margin: 10px;
+	padding: 10px;	
+}
+
+.imagenModal {
+	float: left;
+}
+
+.imagenModal>img {
+	width: 28px;
+}
+
+#cabeceraModal {
+	text-align: center;
+}
+
+.imgCiudadSeleccionada img {
+	width: 100%;
+}
+
+.defaultPage{
+	text-align: center;
+	padding: 1px 1px;
+	margin-bottom: 10px;
+	background: rgba(200, 200, 250, 0.5);
+	border-radius: 5px;
+	width: 95%;
+	margin: 20px auto;	
+}
+
+.divDefault{
+	width:15%;
+	display: inline;
+	margin:5px;
+}
+
+.divDefault>img{
+	width:24%;
+	margin-bottom: 42px;
+}
+
+td{
+	padding:2px;
+}
